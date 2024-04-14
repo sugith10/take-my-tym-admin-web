@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "895129544275",
+    "project_id": "take-my-tym",
+    "storage_bucket": "take-my-tym.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895129544275:android:a93d789cfb2a9506efc8a6",
+        "android_client_info": {
+          "package_name": "com.dayproduction.take_my_tym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895129544275-0hgr6uaedfkmhupuh8kuic6qaepubgme.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dayproduction.take_my_tym",
+            "certificate_hash": "3b1bd746ebfc2923cf7b26e922cb6b88e56d6074"
+          }
+        },
+        {
+          "client_id": "895129544275-9455gfujipbqt3hpolfhe244viv8aoq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMVzzgxwyRpeE_8B8DMZQIdB-QjQ6xlPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895129544275-9455gfujipbqt3hpolfhe244viv8aoq0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "895129544275-447kkhkd23qds908dpjufrt1jvl1506j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dayproduction.takeMyTym"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895129544275:android:b047fb13d5e951b9efc8a6",
+        "android_client_info": {
+          "package_name": "com.dayproduction.take_my_tym_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895129544275-9455gfujipbqt3hpolfhe244viv8aoq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMVzzgxwyRpeE_8B8DMZQIdB-QjQ6xlPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895129544275-9455gfujipbqt3hpolfhe244viv8aoq0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "895129544275-447kkhkd23qds908dpjufrt1jvl1506j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dayproduction.takeMyTym"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
