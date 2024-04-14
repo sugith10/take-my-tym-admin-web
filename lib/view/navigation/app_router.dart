@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:take_my_tym_admin/core/view/pages/error_page.dart';
-import 'package:take_my_tym_admin/core/view/pages/log_in_page.dart';
+import 'package:take_my_tym_admin/view/pages/error_page.dart';
+import 'package:take_my_tym_admin/view/pages/log_in_page.dart';
 
 final GoRouter router = GoRouter(
   errorBuilder: (context, state) => const ErrorPage(),
