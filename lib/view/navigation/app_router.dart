@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:take_my_tym_admin/view/navigation/page_names.dart';
 import 'package:take_my_tym_admin/view/pages/error_page.dart';
+import 'package:take_my_tym_admin/view/pages/home_page.dart';
 import 'package:take_my_tym_admin/view/pages/log_in_page.dart';
 
 final GoRouter router = GoRouter(
@@ -11,13 +13,21 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const LogInPage(),
       routes: <RouteBase>[
         GoRoute(
-          path: 'login',
-          pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          path: PageName.login,
+          pageBuilder: (context, state) => 
+          buildPageWithDefaultTransition<void>(
             context: context,
             state: state,
             child: const LogInPage(),
           ),
         ),
+        GoRoute(
+          path: PageName.home,
+          pageBuilder: (context, state) => 
+          buildPageWithDefaultTransition<void>(
+              context: context, state: state, child: const
+               HomePage()),
+        )
       ],
     ),
   ],

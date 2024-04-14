@@ -18,6 +18,8 @@ dependencies:
   go_router: ^13.2.4
   lottie: ^3.1.0
   firebase_core: ^2.29.0
+  flutter_svg: ^2.0.10+1
+  flutter_side_menu: ^0.4.0
 
 
 dev_dependencies:
@@ -33,17 +35,25 @@ flutter:
   assets:
     - asset/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: asset/font/Poppins/Poppins-Regular.ttf
+        - asset: asset/font/Poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: asset/font/Poppins/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: asset/font/Poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: asset/font/Poppins/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: asset/font/Poppins/Poppins-Black.ttf
+          weight: 900
+
+    - family: Denton Condensed
+      fonts:
+        - asset: asset/font/Denton Condensed/DentonCondensedTest-Regular.otf
+        - asset: asset/font/Denton Condensed/DentonCondensedTest-Black.otf
+          weight: 800
+        - asset: asset/font/Denton Condensed/DentonCondensedTest-Medium.otf
+          weight: 900
