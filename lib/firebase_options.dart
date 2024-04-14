@@ -74,4 +74,5 @@ class DefaultFirebaseOptions {
     iosClientId: '895129544275-erup22tup5vr2vaml6vgolgu0f298532.apps.googleusercontent.com',
     iosBundleId: 'com.dayproduction.takeMyTymAdmin',
   );
+
 }
