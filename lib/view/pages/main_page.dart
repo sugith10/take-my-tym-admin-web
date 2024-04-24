@@ -3,26 +3,37 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:take_my_tym_admin/view/pages/dashboard.dart';
 import 'package:take_my_tym_admin/view/utils/app_responsive.dart';
+import 'package:take_my_tym_admin/view/widgets/side_menu_widget.dart';
 import 'package:take_my_tym_admin/view/widgets/svg_image_widget.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = Responsive.isDesktop(context);
     return Scaffold(
+      drawer: !isDesktop
+          ? const SizedBox(width: 250, child: SideMenuWidget())
+          : null,
       body: SafeArea(
-          child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (Responsive.isDesktop(context))
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (isDesktop)
+              const Expanded(
+                flex: 2,
+                child: SizedBox(
+                  child: SideMenuWidget(),
+                ),
+              ),
             const Expanded(
-              child: SideMenuDesktopWidget(),
+              flex: 7,
+              child: DashDoardWidget(),
             ),
-          if (Responsive.isTablet(context)) const SideMenuTablet(),
-          const Expanded(flex: 5, child: DashDoardPage()),
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -35,47 +46,53 @@ class SideMenuTablet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      
-      child: SizedBox(
-        width: 50,
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        width: 100,
+        color: const Color(0xFFF7F2F9),
         child: Column(
           children: [
+            SizedBox(height: 20.h),
             IconButton(
               tooltip: 'Dashboard',
               onPressed: () {},
               icon: const Icon(Icons.dashboard_rounded),
             ),
+            SizedBox(height: 20.h),
             IconButton(
               tooltip: 'Transactions',
               onPressed: () {},
               icon: const Icon(Icons.monetization_on),
             ),
+            SizedBox(height: 20.h),
             IconButton(
               tooltip: 'Users',
               onPressed: () {},
               icon: const Icon(Icons.people_alt_rounded),
             ),
+            SizedBox(height: 20.h),
             IconButton(
               tooltip: 'Posts',
               onPressed: () {},
               icon: const Icon(Icons.find_in_page),
             ),
+            SizedBox(height: 20.h),
             IconButton(
               tooltip: 'Notifications',
               onPressed: () {},
               icon: const Icon(Icons.notification_add),
             ),
+            SizedBox(height: 20.h),
             IconButton(
               tooltip: 'Settings',
               onPressed: () {},
               icon: const Icon(Icons.settings),
             ),
-            Container(),
+            SizedBox(height: 20.h),
+            const Expanded(child: SizedBox()),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(left: 10, right: 10),
               child: SizedBox(
-                width: 50,
-                height: 50,
                 child: SvgPicture.asset(
                   "asset/TAKEMYTYM.svg",
                 ),

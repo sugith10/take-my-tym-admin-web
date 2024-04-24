@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:take_my_tym_admin/view/navigation/app_router.dart';
+import 'package:take_my_tym_admin/view/utils/app_colors.dart';
 
 class MyAppView extends StatelessWidget {
   const MyAppView({super.key});
@@ -14,9 +15,11 @@ class MyAppView extends StatelessWidget {
         fontSizeResolver: FontSizeResolvers.radius,
         builder: (context, child) {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             routerConfig: router,
             theme: ThemeData(
-                 fontFamily: 'Poppins',
+              fontFamily: 'Poppins',
+              scaffoldBackgroundColor: MyAppColors.scaffoldColor,
               textTheme: TextTheme(
                 displayLarge: TextStyle(
                   fontWeight: FontWeight.w600,

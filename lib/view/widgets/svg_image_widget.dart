@@ -3,16 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SVGImageWidget extends StatelessWidget {
   final String asset;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   final double paddingR;
   final double paddingL;
   final double paddingB;
   final double paddingT;
   const SVGImageWidget({
     required this.asset,
-    this.height = 0,
-    this.width = 0,
+    this.height,
+    this.width,
     this.paddingR = 0,
     this.paddingL = 0,
     this.paddingB = 0,
@@ -31,7 +31,8 @@ class SVGImageWidget extends StatelessWidget {
       ),
       child: SvgPicture.asset(
         asset,
-        height: 40,
+        height: height,
+        width: width,
       ),
     );
   }

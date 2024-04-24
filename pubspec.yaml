@@ -19,7 +19,8 @@ dependencies:
   lottie: ^3.1.0
   firebase_core: ^2.29.0
   flutter_svg: ^2.0.10+1
-  flutter_side_menu: ^0.4.0
+  fl_chart: ^0.67.0
+
 
 
 dev_dependencies:
@@ -33,27 +34,28 @@ flutter:
   uses-material-design: true
 
   assets:
-    - asset/
+    - assets/img/
+    - assets/lottie/
 
   fonts:
     - family: Poppins
       fonts:
-        - asset: asset/font/Poppins/Poppins-Regular.ttf
-        - asset: asset/font/Poppins/Poppins-Medium.ttf
+        - asset: assets/font/Poppins/Poppins-Regular.ttf
+        - asset: assets/font/Poppins/Poppins-Medium.ttf
           weight: 500
-        - asset: asset/font/Poppins/Poppins-SemiBold.ttf
+        - asset: assets/font/Poppins/Poppins-SemiBold.ttf
           weight: 600
-        - asset: asset/font/Poppins/Poppins-Bold.ttf
+        - asset: assets/font/Poppins/Poppins-Bold.ttf
           weight: 700
-        - asset: asset/font/Poppins/Poppins-ExtraBold.ttf
+        - asset: assets/font/Poppins/Poppins-ExtraBold.ttf
           weight: 800
-        - asset: asset/font/Poppins/Poppins-Black.ttf
+        - asset: assets/font/Poppins/Poppins-Black.ttf
           weight: 900
 
     - family: Denton Condensed
       fonts:
-        - asset: asset/font/Denton Condensed/DentonCondensedTest-Regular.otf
-        - asset: asset/font/Denton Condensed/DentonCondensedTest-Black.otf
+        - asset: assets/font/Denton Condensed/DentonCondensedTest-Regular.otf
+        - asset: assets/font/Denton Condensed/DentonCondensedTest-Black.otf
           weight: 800
-        - asset: asset/font/Denton Condensed/DentonCondensedTest-Medium.otf
+        - asset: assets/font/Denton Condensed/DentonCondensedTest-Medium.otf
           weight: 900
