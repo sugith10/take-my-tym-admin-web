@@ -11,5 +11,6 @@ class MyAppLottie {
 }
 
 class MyAppSVG{
-  static const logo = "assets/img/TAKEMYTYM.svg";
+  static const logo = "assets/svg/TAKEMYTYM.svg";
+  static const logout = 'assets/svg/Log-out.svg';
 }

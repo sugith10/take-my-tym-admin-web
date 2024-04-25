@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/widgets/activity_details_card.dart';
-import 'package:take_my_tym_admin/view/widgets/header_widget.dart';
-import 'package:take_my_tym_admin/view/widgets/line_chart_card.dart';
+import 'package:take_my_tym_admin/presentation/widgets/activity_details_card.dart';
+import 'package:take_my_tym_admin/presentation/widgets/header_widget.dart';
+import 'package:take_my_tym_admin/presentation/widgets/line_chart_card.dart';
 
 class DashDoardWidget extends StatelessWidget {
   const DashDoardWidget({super.key});
@@ -12,7 +12,7 @@ class DashDoardWidget extends StatelessWidget {
       child: Column(
         children: [
           HeaderWidget(),
-          ActivityDetailsCard(),
+          DashboardActivityCard(),
           LineChartCard(),
         ],
       ),

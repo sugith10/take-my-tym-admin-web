@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/utils/data/line_chart_data.dart';
-import 'package:take_my_tym_admin/view/widgets/coustom_card.dart';
+import 'package:take_my_tym_admin/util/line_chart_data.dart';
+import 'package:take_my_tym_admin/presentation/widgets/coustom_card.dart';
 
 class LineChartCard extends StatelessWidget {
   const LineChartCard({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/utils/app_radius.dart';
+import 'package:take_my_tym_admin/util/app_radius.dart';
 
 class CustomCard extends StatelessWidget {
   final Widget child;

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:take_my_tym_admin/view/navigation/page_names.dart';
-import 'package:take_my_tym_admin/view/utils/app_assets.dart';
-import 'package:take_my_tym_admin/view/widgets/contact_admin.dart';
-import 'package:take_my_tym_admin/view/widgets/svg_image_widget.dart';
+import 'package:take_my_tym_admin/util/route/page_names.dart';
+import 'package:take_my_tym_admin/util/app_assets.dart';
+import 'package:take_my_tym_admin/presentation/widgets/contact_admin.dart';
+import 'package:take_my_tym_admin/presentation/widgets/svg_image_widget.dart';
 
 part 'login_page_widgets.dart';
 

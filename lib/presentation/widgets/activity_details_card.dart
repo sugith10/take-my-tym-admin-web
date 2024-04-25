@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/utils/data/business_card_data.dart';
-import 'package:take_my_tym_admin/view/utils/app_responsive.dart';
-import 'package:take_my_tym_admin/view/widgets/coustom_card.dart';
+import 'package:take_my_tym_admin/util/business_card_data.dart';
+import 'package:take_my_tym_admin/util/app_responsive.dart';
+import 'package:take_my_tym_admin/presentation/widgets/coustom_card.dart';
 
-class ActivityDetailsCard extends StatelessWidget {
-  const ActivityDetailsCard({super.key});
+class DashboardActivityCard extends StatelessWidget {
+  const DashboardActivityCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,11 @@ class ActivityDetailsCard extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: const Color.fromARGB(255, 233, 235, 235)),
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color.fromARGB(255, 233, 235, 235),
+                      ),
                       child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Image.asset(
                           businessInfo[index].icon,
                           width: 50,
@@ -47,9 +48,10 @@ class ActivityDetailsCard extends StatelessWidget {
                       child: Text(
                         businessInfo[index].value,
                         style: const TextStyle(
-                            fontSize: 18,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.w700),
+                          fontSize: 18,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                     Text(

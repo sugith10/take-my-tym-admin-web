@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/utils/data/side_menu_data.dart';
-import 'package:take_my_tym_admin/view/utils/app_radius.dart';
-import 'package:take_my_tym_admin/view/utils/app_responsive.dart';
+import 'package:take_my_tym_admin/util/app_colors.dart';
+import 'package:take_my_tym_admin/util/side_menu_data.dart';
+import 'package:take_my_tym_admin/util/app_radius.dart';
+import 'package:take_my_tym_admin/util/app_responsive.dart';
 
 class SideMenuWidget extends StatefulWidget {
   const SideMenuWidget({super.key});
@@ -25,7 +26,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
       child: ListView(
         children: [
           const SizedBox(height: 25),
-          const AppLogo(),
+          const Center(child: AppLogo()),
           const SizedBox(height: 35),
           const Divider(),
           const SizedBox(height: 45),
@@ -47,14 +48,18 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
         height: MyAppRadius.halfRound,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: isSelected ? const Color(0xFF4880FF) : Colors.white,
+          color: isSelected
+              ? MyAppColors.secondaryColor
+              : MyAppColors.primaryColor,
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(50),
           onTap: () {
-            setState(() {
-              selectedIndex = index;
-            });
+            setState(
+              () {
+                selectedIndex = index;
+              },
+            );
           },
           child: Row(
             children: [

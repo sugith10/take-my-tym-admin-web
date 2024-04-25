@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/utils/model/menu_model.dart';
+import 'package:take_my_tym_admin/data/model/menu_model.dart';
 
 class SideMenuData {
   final menu = <MenuModel>[

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/widgets/header_widget.dart';
+import 'package:take_my_tym_admin/presentation/widgets/header_widget.dart';
 
-class DashDoardWidget extends StatelessWidget {
-  const DashDoardWidget({super.key});
+class NotificationsWidget extends StatelessWidget {
+  const NotificationsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,6 @@ class DashDoardWidget extends StatelessWidget {
       child: Column(
         children: [
           HeaderWidget(),
-          
         ],
       ),
     );

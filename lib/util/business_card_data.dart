@@ -1,6 +1,6 @@
 
-import 'package:take_my_tym_admin/view/utils/model/business_card_model.dart';
-import 'package:take_my_tym_admin/view/utils/app_assets.dart';
+import 'package:take_my_tym_admin/data/model/business_card_model.dart';
+import 'package:take_my_tym_admin/util/app_assets.dart';
 
 class HealthDetails {
   final healthData = <BusinessModel>[
