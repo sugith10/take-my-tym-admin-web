@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:take_my_tym_admin/presentation/widgets/app_logo_widget.dart';
 import 'package:take_my_tym_admin/util/app_colors.dart';
 import 'package:take_my_tym_admin/util/side_menu_data.dart';
 import 'package:take_my_tym_admin/util/app_radius.dart';
-import 'package:take_my_tym_admin/util/app_responsive.dart';
 
 class SideMenuWidget extends StatefulWidget {
   const SideMenuWidget({super.key});
@@ -91,24 +91,3 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
   }
 }
 
-class AppLogo extends StatelessWidget {
-  const AppLogo({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Responsive.isDesktop(context) ? _logo(40) : _logo(30);
-  }
-
-  Text _logo(double size) {
-    return Text(
-      'TAKEMYTYM',
-      style: TextStyle(
-        fontWeight: FontWeight.w600,
-        letterSpacing: 1,
-        fontSize: size,
-      ),
-    );
-  }
-}

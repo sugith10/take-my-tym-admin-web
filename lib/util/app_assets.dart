@@ -3,6 +3,7 @@ class MyAppImages {
   static const money = 'assets/img/money.png';
   static const contract = 'assets/img/contract.png';
   static const business = 'assets/img/business.png';
+  static const underConstruction = 'assets/img/under_construction.jpg';
 }
 
 class MyAppLottie {
@@ -10,7 +11,7 @@ class MyAppLottie {
   static const pageNotFound = 'assets/lottie/page_not_found.json';
 }
 
-class MyAppSVG{
+class MyAppSVG {
   static const logo = "assets/svg/TAKEMYTYM.svg";
   static const logout = 'assets/svg/Log-out.svg';
 }

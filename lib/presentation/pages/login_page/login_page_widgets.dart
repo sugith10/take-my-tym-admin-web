@@ -13,17 +13,9 @@ class _MobileLoginCard extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const SVGImageWidget(
-                asset: MyAppSVG.logo,
-                paddingB: 20,
-                paddingT: 20,
-                paddingL: 40,
-                paddingR: 40,
-                width: 40,
-                height: 30,
-              ),
-            
-              SizedBox(height: 20.h),
+               const SizedBox(height: 10),
+                    const AppLogo(),
+                    const SizedBox(height: 30),
               const LoginPageTextField(
                 hint: "Email ID",
                 icon: CupertinoIcons.mail,
@@ -61,12 +53,9 @@ class _DesktopLoginCard extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    const SVGImageWidget(
-                      asset: MyAppSVG.logo,
-                      paddingL: 40,
-                      paddingR: 40,
-                      paddingB: 20,
-                    ),
+                      const SizedBox(height: 20),
+                    const AppLogo(),
+                    const SizedBox(height: 30),
                     const LoginPageTextField(
                       hint: "Email ID",
                       icon: CupertinoIcons.envelope,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:take_my_tym_admin/presentation/widgets/app_logo_widget.dart';
 import 'package:take_my_tym_admin/util/route/page_names.dart';
 import 'package:take_my_tym_admin/util/app_assets.dart';
 import 'package:take_my_tym_admin/presentation/widgets/contact_admin.dart';

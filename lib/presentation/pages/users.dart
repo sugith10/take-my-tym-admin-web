@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:take_my_tym_admin/data/model/user_model.dart';
+import 'package:take_my_tym_admin/presentation/widgets/data_column_title.dart';
 import 'package:take_my_tym_admin/presentation/widgets/data_table_container.dart';
 import 'package:take_my_tym_admin/presentation/widgets/header_widget.dart';
 import 'package:take_my_tym_admin/presentation/widgets/transactions_hightlight_cards.dart';
@@ -9,24 +12,22 @@ class UsersWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
         children: [
-          const HeaderWidget(),
-          const TransactionsHighlightCard(),
-          const SizedBox(height: 10),
-          DataTableContainer(
-            dataTableWidget: UserModelWidget(),
-          ),
-          const SizedBox(height: 10),
+          HeaderWidget(),
+          TransactionsHighlightCard(),
+          SizedBox(height: 10),
+          UsersTableWidget(),
+          SizedBox(height: 10),
         ],
       ),
     );
   }
 }
 
-class UserModelWidget extends StatelessWidget {
-  const UserModelWidget({super.key});
+class UsersCardWidget extends StatelessWidget {
+  const UsersCardWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +44,56 @@ class UserModelWidget extends StatelessWidget {
             color: MyAppColors.fillColor,
           ),
         ),
-         const SizedBox(
+        const SizedBox(
           height: 15,
         ),
       ],
+    );
+  }
+}
+
+class UsersTableWidget extends StatelessWidget {
+  const UsersTableWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const userModel = UserModel(
+        uid: '1234231', name: 'Rocky', email: 'rocky@gmail.com', block: false);
+
+    final userModelList = <UserModel>[
+      userModel,
+      userModel,
+      userModel,
+      userModel,
+      userModel,
+    ];
+    return DataTableContainer(
+      dataTableWidget: DataTable(
+        columns: const [
+          DataColumn(label: DataColumnTitle(title: 'User Count')),
+          DataColumn(label: DataColumnTitle(title: 'UserName')),
+          DataColumn(label: DataColumnTitle(title: 'Email')),
+          DataColumn(label: DataColumnTitle(title: 'Block')),
+        ],
+        rows: List<DataRow>.generate(
+          userModelList.length,
+          (index) => DataRow(
+            cells: [
+              DataCell(Text(index.toString())),
+              DataCell(Text(userModelList[index].name)),
+              DataCell(Text(userModelList[index].email)),
+              DataCell(Column(
+                children: [
+                  Switch(
+                    activeColor: MyAppColors.secondaryColor,
+                      value: (!userModelList[index].block), onChanged: (value) {}),
+           
+                ],
+              )),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

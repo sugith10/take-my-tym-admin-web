@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:take_my_tym_admin/util/app_assets.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});
@@ -8,8 +9,10 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Lottie.asset('asset/page_not_found.json',
-       width: MediaQuery.of(context).size.width),
+      body: Lottie.asset(
+        MyAppLottie.pageNotFound,
+        width: MediaQuery.of(context).size.width,
+      ),
     );
   }
 }

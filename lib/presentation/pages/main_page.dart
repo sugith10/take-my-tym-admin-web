@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:take_my_tym_admin/presentation/pages/dashboard.dart';
+import 'package:take_my_tym_admin/presentation/pages/notifications.dart';
+import 'package:take_my_tym_admin/presentation/pages/transactions.dart';
 import 'package:take_my_tym_admin/presentation/pages/users.dart';
 import 'package:take_my_tym_admin/util/app_responsive.dart';
 import 'package:take_my_tym_admin/presentation/widgets/side_menu_widget.dart';
@@ -26,7 +29,7 @@ class MainScreen extends StatelessWidget {
               ),
             const Expanded(
               flex: 7,
-              child: UsersWidget(),
+              child:DashDoardWidget(),
             ),
           ],
         ),
