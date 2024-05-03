@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:take_my_tym_admin/app.dart';
 import 'package:take_my_tym_admin/presentation/widgets/app_logo_widget.dart';
 import 'package:take_my_tym_admin/util/app_colors.dart';
 import 'package:take_my_tym_admin/util/side_menu_data.dart';
 import 'package:take_my_tym_admin/util/app_radius.dart';
 
-class SideMenuWidget extends StatefulWidget {
+class SideMenuWidget extends StatelessWidget {
   const SideMenuWidget({super.key});
 
-  @override
-  State<SideMenuWidget> createState() => _SideMenuWidgetState();
-}
-
-class _SideMenuWidgetState extends State<SideMenuWidget> {
-  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     final data = SideMenuData();
@@ -30,64 +26,73 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
           const SizedBox(height: 35),
           const Divider(),
           const SizedBox(height: 45),
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: data.menu.length,
-            itemBuilder: (context, index) => buildMenuEntry(data, index),
-          ),
-        ],
-      ),
-    );
-  }
+          Consumer(builder: (context, ref, child) {
+            final selectedIndex = ref.watch(selectedIndexProvider);
 
-  Widget buildMenuEntry(SideMenuData data, int index) {
-    final bool isSelected = selectedIndex == index;
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Container(
-        height: MyAppRadius.halfRound,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: isSelected
-              ? MyAppColors.secondaryColor
-              : MyAppColors.primaryColor,
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(50),
-          onTap: () {
-            setState(
-              () {
-                selectedIndex = index;
-              },
-            );
-          },
-          child: Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
-                child: Icon(
-                  data.menu[index].icon,
-                  color: isSelected
-                      ? const Color.fromARGB(255, 255, 255, 255)
-                      : Colors.grey,
-                ),
+            return ListView.builder(
+              shrinkWrap: true,
+              itemCount: data.menu.length,
+              itemBuilder: (
+                context,
+                index,
+              ) =>
+                  _buildMenuEntry(
+                data: data,
+                index: index,
+                selectedIndex: selectedIndex,
+                context: context,
+                ref: ref,
               ),
-              Text(
-                data.menu[index].title,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: isSelected
-                      ? const Color.fromARGB(255, 255, 255, 255)
-                      : Colors.grey,
-                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                ),
-              )
-            ],
-          ),
-        ),
+            );
+          }),
+        ],
       ),
     );
   }
 }
 
+Widget _buildMenuEntry({
+  required SideMenuData data,
+  required int index,
+  required int selectedIndex,
+  required BuildContext context,
+  required WidgetRef ref,
+}) {
+  final bool isSelected = selectedIndex == index;
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 20),
+    child: Container(
+      height: MyAppRadius.halfRound,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color:
+            isSelected ? MyAppColors.secondaryColor : MyAppColors.primaryColor,
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(50),
+        onTap: () {
+          ref.watch(selectedIndexProvider.notifier).state = index;
+        },
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
+              child: Icon(
+                data.menu[index].icon,
+                color: isSelected ? Colors.white : Colors.grey,
+              ),
+            ),
+            Text(
+              data.menu[index].title,
+              style: TextStyle(
+                fontSize: 16,
+                color: isSelected ? Colors.white : Colors.grey,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+              ),
+            )
+          ],
+        ),
+      ),
+    ),
+  );
+}
