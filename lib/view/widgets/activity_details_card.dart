@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:take_my_tym_admin/util/business_card_data.dart';
 import 'package:take_my_tym_admin/util/app_responsive.dart';
-import 'package:take_my_tym_admin/presentation/widgets/coustom_card.dart';
+import 'package:take_my_tym_admin/view/widgets/coustom_card.dart';
 
 class DashboardActivityCard extends StatelessWidget {
   const DashboardActivityCard({super.key});

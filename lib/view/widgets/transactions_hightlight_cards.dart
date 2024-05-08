@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:take_my_tym_admin/util/app_colors.dart';
 import 'package:take_my_tym_admin/util/business_card_data.dart';
 import 'package:take_my_tym_admin/util/app_responsive.dart';
-import 'package:take_my_tym_admin/presentation/widgets/coustom_card.dart';
+import 'package:take_my_tym_admin/view/widgets/coustom_card.dart';
 
 class TransactionsHighlightCard extends StatelessWidget {
   const TransactionsHighlightCard({super.key});

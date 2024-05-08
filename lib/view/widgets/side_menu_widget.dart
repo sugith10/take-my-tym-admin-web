@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:take_my_tym_admin/app.dart';
-import 'package:take_my_tym_admin/presentation/widgets/app_logo_widget.dart';
+import 'package:take_my_tym_admin/view/widgets/app_logo_widget.dart';
 import 'package:take_my_tym_admin/util/app_colors.dart';
 import 'package:take_my_tym_admin/util/side_menu_data.dart';
 import 'package:take_my_tym_admin/util/app_radius.dart';

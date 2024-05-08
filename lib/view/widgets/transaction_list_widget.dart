@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:take_my_tym_admin/data/model/transaction_model.dart';
-import 'package:take_my_tym_admin/presentation/widgets/data_column_title.dart';
-import 'package:take_my_tym_admin/presentation/widgets/data_table_container.dart';
+import 'package:take_my_tym_admin/view/widgets/data_column_title.dart';
+import 'package:take_my_tym_admin/view/widgets/data_table_container.dart';
 
 class TransactionsTableWidget extends StatelessWidget {
   const TransactionsTableWidget({super.key});

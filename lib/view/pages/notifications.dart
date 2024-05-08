@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/presentation/widgets/header_widget.dart';
-import 'package:take_my_tym_admin/presentation/widgets/under_construction_widget.dart';
+import 'package:take_my_tym_admin/view/widgets/header_widget.dart';
+import 'package:take_my_tym_admin/view/widgets/under_construction_widget.dart';
 
 class NotificationsWidget extends StatelessWidget {
   const NotificationsWidget({super.key});

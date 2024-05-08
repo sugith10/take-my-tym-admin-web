@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:take_my_tym_admin/app.dart';
-import 'package:take_my_tym_admin/presentation/pages/dashboard.dart';
-import 'package:take_my_tym_admin/presentation/pages/notifications.dart';
-import 'package:take_my_tym_admin/presentation/pages/posts.dart';
-import 'package:take_my_tym_admin/presentation/pages/transactions.dart';
-import 'package:take_my_tym_admin/presentation/pages/users.dart';
+import 'package:take_my_tym_admin/view/pages/dashboard.dart';
+import 'package:take_my_tym_admin/view/pages/notifications.dart';
+import 'package:take_my_tym_admin/view/pages/posts.dart';
+import 'package:take_my_tym_admin/view/pages/transactions.dart';
+import 'package:take_my_tym_admin/view/pages/users.dart';
 import 'package:take_my_tym_admin/util/app_responsive.dart';
-import 'package:take_my_tym_admin/presentation/widgets/side_menu_widget.dart';
+import 'package:take_my_tym_admin/view/widgets/side_menu_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

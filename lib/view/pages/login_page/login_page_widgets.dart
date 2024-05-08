@@ -1,7 +1,14 @@
 part of 'log_in_page.dart';
 
 class _MobileLoginCard extends StatelessWidget {
-  const _MobileLoginCard();
+  final TextEditingController emailCntrl;
+  final TextEditingController passwordCntrl;
+  final VoidCallback callback;
+  const _MobileLoginCard({
+    required this.emailCntrl,
+    required this.passwordCntrl,
+    required this.callback,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,20 +20,26 @@ class _MobileLoginCard extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-               const SizedBox(height: 10),
-                    const AppLogo(),
-                    const SizedBox(height: 30),
-              const LoginPageTextField(
+              const SizedBox(height: 10),
+              const AppLogo(),
+              const SizedBox(height: 30),
+              LoginPageTextField(
                 hint: "Email ID",
                 icon: CupertinoIcons.mail,
+                controller: emailCntrl,
               ),
               SizedBox(height: 25.h),
-              const LoginPageTextField(
+              LoginPageTextField(
                 hint: 'Password',
                 icon: Icons.mail_outline_rounded,
+                controller: passwordCntrl,
               ),
               SizedBox(height: 35.h),
-              const LogInButton(),
+              LogInButton(
+                callback: () {
+                  callback();
+                },
+              ),
               const ContactAdminWidget(),
             ],
           ),
@@ -37,7 +50,14 @@ class _MobileLoginCard extends StatelessWidget {
 }
 
 class _DesktopLoginCard extends StatelessWidget {
-  const _DesktopLoginCard();
+  final TextEditingController emailCntrl;
+  final TextEditingController passwordCntrl;
+  final VoidCallback callback;
+  const _DesktopLoginCard({
+    required this.emailCntrl,
+    required this.passwordCntrl,
+    required this.callback,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,20 +73,26 @@ class _DesktopLoginCard extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                      const SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     const AppLogo(),
                     const SizedBox(height: 30),
-                    const LoginPageTextField(
+                    LoginPageTextField(
                       hint: "Email ID",
                       icon: CupertinoIcons.envelope,
+                      controller: emailCntrl,
                     ),
                     SizedBox(height: 20.h),
-                    const LoginPageTextField(
+                    LoginPageTextField(
                       hint: 'Password',
                       icon: Icons.password_rounded,
+                      controller: passwordCntrl,
                     ),
                     SizedBox(height: 30.h),
-                    const LogInButton(),
+                    LogInButton(
+                      callback: () {
+                        callback();
+                      },
+                    ),
                     const ContactAdminWidget(),
                   ],
                 ),
@@ -87,7 +113,9 @@ class _DesktopLoginCard extends StatelessWidget {
 }
 
 class LogInButton extends StatelessWidget {
+  final VoidCallback callback;
   const LogInButton({
+    required this.callback,
     super.key,
   });
 
@@ -95,7 +123,7 @@ class LogInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.go("/${PageName.home}");
+        callback();
       },
       style:
           ButtonStyle(minimumSize: MaterialStatePropertyAll(Size(500, 60.h))),
@@ -107,7 +135,9 @@ class LogInButton extends StatelessWidget {
 class LoginPageTextField extends StatelessWidget {
   final String hint;
   final IconData icon;
+  final TextEditingController controller;
   const LoginPageTextField({
+    required this.controller,
     required this.hint,
     required this.icon,
     super.key,
@@ -123,6 +153,7 @@ class LoginPageTextField extends StatelessWidget {
             style: Theme.of(context).textTheme.labelSmall),
         SizedBox(height: 10.h),
         TextField(
+          controller: controller,
           style: Theme.of(context).textTheme.labelLarge,
           cursorColor: Colors.black,
           decoration: InputDecoration(
