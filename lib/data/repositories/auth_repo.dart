@@ -7,14 +7,13 @@ class AuthRepo {
     try {
       log(email);
       log(password);
-      await SignInRemoteData().emailSignIn(email, password);
+      await AuthService().emailSignIn(email, password);
       log("success");
       return;
     } on AppException catch (e) {
-      // Rethrow the AppException
+      log(e.toString());
       rethrow;
     } catch (e) {
-      // Handle other exceptions
       log(e.toString());
       throw const AppException(
         alert: 'Something went wrong',
@@ -22,4 +21,22 @@ class AuthRepo {
       );
     }
   }
+
+  Future<void> signOut()async{
+    try{
+      await AuthService().signOut();
+      return;
+    }on AppException catch (e) {
+      log(e.toString());
+      rethrow;
+    } catch (e) {
+      log(e.toString());
+      throw const AppException(
+        alert: 'Something went wrong',
+        details: 'Check RemoteDataSource',
+      );
+    }
+  }
+
+  
 }

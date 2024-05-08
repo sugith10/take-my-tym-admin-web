@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:take_my_tym_admin/data/repositories/auth_repo.dart';
 import 'package:take_my_tym_admin/util/app_assets.dart';
 import 'package:take_my_tym_admin/view/widgets/svg_image_widget.dart';
 
@@ -19,15 +21,16 @@ class LogOutButton extends StatelessWidget {
               content: const Text('Are you sure you want to log out?'),
               actions: <Widget>[
                 TextButton(
-                  onPressed: () {
-
-                    Navigator.of(context).pop(); 
+                  onPressed: () async {
+                    await AuthRepo().signOut().then((value) {
+                      context.go("/");
+                    });
                   },
                   child: const Text('Yes'),
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop(); 
+                    Navigator.of(context).pop();
                   },
                   child: const Text('No'),
                 ),

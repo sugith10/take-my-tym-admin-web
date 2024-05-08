@@ -7,7 +7,6 @@ import 'package:take_my_tym_admin/data/repositories/auth_repo.dart';
 import 'package:take_my_tym_admin/view/widgets/app_logo_widget.dart';
 import 'package:take_my_tym_admin/util/app_assets.dart';
 import 'package:take_my_tym_admin/view/widgets/contact_admin.dart';
-
 import '../../../util/route/page_names.dart';
 
 part 'login_page_widgets.dart';
@@ -24,20 +23,31 @@ class _LogInPageState extends State<LogInPage> {
   final TextEditingController passwordCntrl = TextEditingController();
 
   Future<void> login() async {
-    try{
-    await  AuthRepo().signIn(email: emailCntrl.text, password: passwordCntrl.text).then((value){
-    
-        context.go("/${PageName.home}");
-    } );
-    }catch(e){
-        ScaffoldMessenger.of(context).showSnackBar(
-             const SnackBar(
-                content: Text('Error: Lorem Ipsum is simply dummy text'),
-                backgroundColor: Colors.red,
-              ),
-            );
+    try {
+      await AuthRepo()
+          .signIn(email: emailCntrl.text, password: passwordCntrl.text)
+          .then((value) {
+        context.go(
+          "/${PageName.home}",
+        );
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Error: Lorem Ipsum is simply dummy text'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
+
+  @override
+  void dispose() {
+    emailCntrl.dispose();
+    passwordCntrl.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -62,7 +72,7 @@ class _LogInPageState extends State<LogInPage> {
                   emailCntrl: emailCntrl,
                   passwordCntrl: passwordCntrl,
                   callback: () {
-                     login();
+                    login();
                   },
                 );
               }

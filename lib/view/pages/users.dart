@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:take_my_tym_admin/data/model/user_model.dart';
+import 'package:take_my_tym_admin/data/repositories/user_control_repo.dart';
 import 'package:take_my_tym_admin/view/widgets/data_column_title.dart';
 import 'package:take_my_tym_admin/view/widgets/data_table_container.dart';
 import 'package:take_my_tym_admin/view/widgets/header_widget.dart';
@@ -58,11 +59,11 @@ class UsersTableWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<QuerySnapshot>(
-      future: FirebaseFirestore.instance.collection('users').get(),
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('users').snapshots(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: const CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
@@ -71,7 +72,7 @@ class UsersTableWidget extends StatelessWidget {
           return const Text('No users found');
         }
 
-        final users = snapshot.data!.docs
+        final List<UserModel> users = snapshot.data!.docs
             .map((doc) => UserModel.fromMap(doc.data() as Map<String, dynamic>))
             .toList();
         return DataTableContainer(
@@ -94,9 +95,13 @@ class UsersTableWidget extends StatelessWidget {
                       Switch(
                         inactiveThumbColor: Colors.red,
                         activeColor: MyAppColors.secondaryColor,
-                        value: !users[index].block,
+                        value: users[index].blocked,
                         onChanged: (value) {
-                          
+                          if (!value) {
+                            UserControlRepo().unblockUser(users[index].uid);
+                          } else {
+                            UserControlRepo().blockUser(users[index].uid);
+                          }
                         },
                       ),
                     ],

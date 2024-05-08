@@ -1,16 +1,24 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:take_my_tym_admin/util/app_exception.dart';
 
-class AuthService {}
-
-class SignInRemoteData {
+class AuthService {
   ///EMAIL SIGNIN
   Future<void> emailSignIn(String email, String password) async {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+
+      final res = await FirebaseFirestore.instance
+          .collection("admin")
+          .where("uid", isEqualTo: credential.user!.uid)
+          .get();
+
+      if (res.docs.isEmpty) {
+        throw const AppException();
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'network-request-failed') {
         throw const AppException(
@@ -53,6 +61,17 @@ class SignInRemoteData {
         alert: 'Something went wrong',
         details: 'Check RemoteDataSource',
       );
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut().then((value) {
+        return;
+      });
+      log('Signed out successfully!');
+    } catch (e) {
+      throw const AppException();
     }
   }
 }

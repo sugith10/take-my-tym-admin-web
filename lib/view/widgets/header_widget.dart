@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:take_my_tym_admin/util/app_colors.dart';
-import 'package:take_my_tym_admin/util/app_radius.dart';
 import 'package:take_my_tym_admin/util/app_responsive.dart';
 import 'package:take_my_tym_admin/view/widgets/log_out_button.dart';
-import 'package:take_my_tym_admin/view/widgets/svg_image_widget.dart';
+
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});

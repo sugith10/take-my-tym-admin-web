@@ -1,14 +1,14 @@
 class UserModel {
-  final String uid;
-  final String userName;
-  final String email;
-  final bool block;
+   String uid;
+   String userName;
+   String email;
+   bool blocked;
 
   UserModel({
     required this.uid,
     required this.userName,
     required this.email,
-    required this.block,
+    required this.blocked,
   });
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
@@ -16,7 +16,7 @@ class UserModel {
       uid: map['uid'] ?? '',
       userName: map['userName'] ?? '',
       email: map['email'] ?? '',
-      block: map['block'] ?? false,
+      blocked: map['blocked'] ?? '',
     );
   }
 }
