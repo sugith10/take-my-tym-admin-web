@@ -1,91 +1,65 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TransactionModel {
-  final String date;
-  final String transactionId;
-  final String senderName;
-  final String receiverName;
-  final String paymentStatus;
-  final double? profit;
+  final Timestamp timestamp;
+  final double amount;
+  ///credit==true-debit==false
+  final bool transactionType;
   TransactionModel({
-    required this.date,
-    required this.transactionId,
-    required this.senderName,
-    required this.receiverName,
-    required this.paymentStatus,
-    this.profit,
+    required this.timestamp,
+    required this.amount,
+    required this.transactionType,
   });
 
   TransactionModel copyWith({
-    String? date,
-    String? transactionId,
-    String? senderName,
-    String? receiverName,
-    String? paymentStatus,
-    double? profit,
+    Timestamp? timestamp,
+    double? amount,
+    bool? transactionType,
   }) {
     return TransactionModel(
-      date: date ?? this.date,
-      transactionId: transactionId ?? this.transactionId,
-      senderName: senderName ?? this.senderName,
-      receiverName: receiverName ?? this.receiverName,
-      paymentStatus: paymentStatus ?? this.paymentStatus,
-      profit: profit ?? this.profit,
+      timestamp: timestamp ?? this.timestamp,
+      amount: amount ?? this.amount,
+      transactionType: transactionType ?? this.transactionType,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'date': date,
-      'transactionId': transactionId,
-      'senderName': senderName,
-      'receiverName': receiverName,
-      'paymentStatus': paymentStatus,
-      'profit': profit,
+      'timestamp': timestamp,
+      'amount': amount,
+      'transactionType': transactionType,
     };
   }
 
   factory TransactionModel.fromMap(Map<String, dynamic> map) {
     return TransactionModel(
-      date: map['date'] as String,
-      transactionId: map['transactionId'] as String,
-      senderName: map['senderName'] as String,
-      receiverName: map['receiverName'] as String,
-      paymentStatus: map['paymentStatus'] as String,
-      profit: map['profit'] != null ? map['profit'] as double : null,
+      timestamp: map['timestamp'] as Timestamp,
+      amount: map['amount'] as double,
+      transactionType: map['transactionType'] as bool,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory TransactionModel.fromJson(String source) => TransactionModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory TransactionModel.fromJson(String source) =>
+      TransactionModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() {
-    return 'TransactionModel(date: $date, transactionId: $transactionId, senderName: $senderName, receiverName: $receiverName, paymentStatus: $paymentStatus, profit: $profit)';
-  }
+  String toString() =>
+      'TransactionModel(timestamp: $timestamp, amount: $amount, transactionType: $transactionType)';
 
   @override
   bool operator ==(covariant TransactionModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.date == date &&
-      other.transactionId == transactionId &&
-      other.senderName == senderName &&
-      other.receiverName == receiverName &&
-      other.paymentStatus == paymentStatus &&
-      other.profit == profit;
+
+    return other.timestamp == timestamp &&
+        other.amount == amount &&
+        other.transactionType == transactionType;
   }
 
   @override
-  int get hashCode {
-    return date.hashCode ^
-      transactionId.hashCode ^
-      senderName.hashCode ^
-      receiverName.hashCode ^
-      paymentStatus.hashCode ^
-      profit.hashCode;
-  }
+  int get hashCode =>
+      timestamp.hashCode ^ amount.hashCode ^ transactionType.hashCode;
 }

@@ -18,7 +18,7 @@ class UsersWidget extends StatelessWidget {
       child: Column(
         children: [
           HeaderWidget(),
-          TransactionsHighlightCard(),
+       
           SizedBox(height: 10),
           UsersTableWidget(),
           SizedBox(height: 10),

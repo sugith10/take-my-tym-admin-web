@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:take_my_tym_admin/view/widgets/header_widget.dart';
 import 'package:take_my_tym_admin/view/widgets/transaction_list_widget.dart';
-import 'package:take_my_tym_admin/view/widgets/transactions_hightlight_cards.dart';
 
 class TransactionsWidget extends StatelessWidget {
   const TransactionsWidget({super.key});
@@ -12,7 +11,7 @@ class TransactionsWidget extends StatelessWidget {
       child: Column(
         children: [
           HeaderWidget(),
-          TransactionsHighlightCard(),
+          // TransactionsHighlightCard(),
           SizedBox(height: 10),
           TransactionsTableWidget(),
           SizedBox(height: 10),

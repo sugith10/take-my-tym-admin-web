@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:take_my_tym_admin/view/widgets/pagination_widget.dart';
 
 class DataTableContainer extends StatelessWidget {
   final Widget dataTableWidget;
@@ -28,7 +27,7 @@ class DataTableContainer extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 15),
-         const PaginationWidget(),
+        //  const PaginationWidget(),
         const SizedBox(height: 30),
       ],
     );
