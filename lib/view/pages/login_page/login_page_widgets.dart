@@ -33,6 +33,7 @@ class _MobileLoginCard extends StatelessWidget {
                 hint: 'Password',
                 icon: Icons.mail_outline_rounded,
                 controller: passwordCntrl,
+                show: true,
               ),
               SizedBox(height: 35.h),
               LogInButton(
@@ -86,6 +87,7 @@ class _DesktopLoginCard extends StatelessWidget {
                       hint: 'Password',
                       icon: Icons.password_rounded,
                       controller: passwordCntrl,
+                      show: true,
                     ),
                     SizedBox(height: 30.h),
                     LogInButton(
@@ -125,56 +127,8 @@ class LogInButton extends StatelessWidget {
       onPressed: () {
         callback();
       },
-      style:
-          ButtonStyle(minimumSize: MaterialStatePropertyAll(Size(500, 60.h))),
+      style: ButtonStyle(minimumSize: WidgetStatePropertyAll(Size(500, 60.h))),
       child: const Text("Log In"),
-    );
-  }
-}
-
-class LoginPageTextField extends StatelessWidget {
-  final String hint;
-  final IconData icon;
-  final TextEditingController controller;
-  const LoginPageTextField({
-    required this.controller,
-    required this.hint,
-    required this.icon,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(hint,
-            textAlign: TextAlign.start,
-            style: Theme.of(context).textTheme.labelSmall),
-        SizedBox(height: 10.h),
-        TextField(
-          controller: controller,
-          style: Theme.of(context).textTheme.labelLarge,
-          cursorColor: Colors.black,
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: Theme.of(context).textTheme.labelLarge,
-            prefixIcon: Icon(
-              icon,
-              weight: 10,
-            ),
-            enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            filled: true,
-            fillColor:
-                const Color.fromARGB(255, 238, 238, 238).withOpacity(0.9),
-          ),
-        ),
-      ],
     );
   }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "take_my_tym_admin",
-    "short_name": "take_my_tym_admin",
+    "name": "Take My Tym - Admin",
+    "short_name": "Take My Tym",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

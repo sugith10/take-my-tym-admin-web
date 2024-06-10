@@ -8,6 +8,7 @@ import 'package:take_my_tym_admin/view/widgets/app_logo_widget.dart';
 import 'package:take_my_tym_admin/util/app_assets.dart';
 import 'package:take_my_tym_admin/view/widgets/contact_admin.dart';
 import '../../../util/route/page_names.dart';
+import '../../widgets/login_page_text_field.dart';
 
 part 'login_page_widgets.dart';
 
@@ -34,7 +35,7 @@ class _LogInPageState extends State<LogInPage> {
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Error: Lorem Ipsum is simply dummy text'),
+          content: Text('Error: Wrong password'),
           backgroundColor: Colors.red,
         ),
       );

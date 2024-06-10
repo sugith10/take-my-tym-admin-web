@@ -4,7 +4,6 @@ import 'package:take_my_tym_admin/data/repositories/user_control_repo.dart';
 import 'package:take_my_tym_admin/view/widgets/data_column_title.dart';
 import 'package:take_my_tym_admin/view/widgets/data_table_container.dart';
 import 'package:take_my_tym_admin/view/widgets/header_widget.dart';
-import 'package:take_my_tym_admin/view/widgets/transactions_hightlight_cards.dart';
 import 'package:take_my_tym_admin/util/app_colors.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,7 +17,6 @@ class UsersWidget extends StatelessWidget {
       child: Column(
         children: [
           HeaderWidget(),
-       
           SizedBox(height: 10),
           UsersTableWidget(),
           SizedBox(height: 10),

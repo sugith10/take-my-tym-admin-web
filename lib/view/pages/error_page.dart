@@ -9,9 +9,11 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Lottie.asset(
-        MyAppLottie.pageNotFound,
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
+        child: Lottie.asset(
+          MyAppLottie.pageNotFound,
+        ),
       ),
     );
   }

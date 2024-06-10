@@ -15,6 +15,7 @@ class MyAppView extends StatelessWidget {
         fontSizeResolver: FontSizeResolvers.radius,
         builder: (context, child) {
           return MaterialApp.router(
+            title: "Take My Tym - Admin",
             debugShowCheckedModeBanner: false,
             routerConfig: router,
             theme: MyAppTheme().themData,

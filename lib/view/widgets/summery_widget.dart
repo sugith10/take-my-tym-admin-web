@@ -5,12 +5,10 @@ class SummeryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Column(
-        children: [ 
-             SizedBox(height: 20,)
-        ],
-      ),
+    return const Column(
+      children: [ 
+           SizedBox(height: 20,)
+      ],
     );
   }
 }
