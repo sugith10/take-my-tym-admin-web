@@ -10,7 +10,7 @@ class TransactionsHighlightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final businessInfo = HealthDetails().healthData;
+    const businessInfo = HealthDetails.healthData;
     return Padding(
       padding: const EdgeInsets.only(
         left: 20,
@@ -22,7 +22,7 @@ class TransactionsHighlightCard extends StatelessWidget {
         shrinkWrap: true,
         physics: const ScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: Responsive.isMobile(context) ? 2 : 4,
+          crossAxisCount: Responsive.isMobile(context) ? 2 : 2,
           crossAxisSpacing: 15,
           mainAxisSpacing: 12.0,
         ),

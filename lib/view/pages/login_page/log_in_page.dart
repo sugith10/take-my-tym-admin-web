@@ -7,7 +7,7 @@ import 'package:take_my_tym_admin/data/repositories/auth_repo.dart';
 import 'package:take_my_tym_admin/view/widgets/app_logo_widget.dart';
 import 'package:take_my_tym_admin/util/app_assets.dart';
 import 'package:take_my_tym_admin/view/widgets/contact_admin.dart';
-import '../../../util/route/page_names.dart';
+import '../../../route/page_names.dart';
 import '../../widgets/login_page_text_field.dart';
 
 part 'login_page_widgets.dart';
@@ -28,11 +28,12 @@ class _LogInPageState extends State<LogInPage> {
       await AuthRepo()
           .signIn(email: emailCntrl.text, password: passwordCntrl.text)
           .then((value) {
-        context.go(
-          "/${PageName.home}",
-        );
+        context.go("/${PageName.home}");
+        emailCntrl.clear();
+        passwordCntrl.clear();
       });
     } catch (e) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Error: Wrong password'),

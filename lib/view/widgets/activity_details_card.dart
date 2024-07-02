@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:take_my_tym_admin/util/business_card_data.dart';
 import 'package:take_my_tym_admin/util/app_responsive.dart';
@@ -8,7 +9,6 @@ class DashboardActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final businessInfo = HealthDetails().healthData;
     return Padding(
       padding: const EdgeInsets.only(
         left: 20,
@@ -16,7 +16,7 @@ class DashboardActivityCard extends StatelessWidget {
         right: 20,
       ),
       child: GridView.builder(
-          itemCount: businessInfo.length,
+          itemCount: HealthDetails.healthData.length,
           shrinkWrap: true,
           physics: const ScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -37,7 +37,7 @@ class DashboardActivityCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Image.asset(
-                          businessInfo[index].icon,
+                          HealthDetails.healthData[index].icon,
                           width: 50,
                           height: 50,
                         ),
@@ -45,17 +45,28 @@ class DashboardActivityCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 15, bottom: 4),
-                      child: Text(
-                        businessInfo[index].value,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w700,
-                        ),
+                      child: FutureBuilder(
+                        future: FirebaseFirestore.instance
+                            .collection(HealthDetails.healthData[index].value)
+                            .get(),
+                        builder: (context, snapShot) {
+                          if (snapShot.connectionState ==
+                              ConnectionState.done) {
+                            return Text(
+                              snapShot.data!.docs.length.toString(),
+                              style: const TextStyle(
+                                fontSize: 18,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            );
+                          }
+                          return const CircularProgressIndicator();
+                        },
                       ),
                     ),
                     Text(
-                      businessInfo[index].title,
+                      HealthDetails.healthData[index].title,
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:take_my_tym_admin/util/app_theme.dart';
-import 'package:take_my_tym_admin/util/route/app_router.dart';
+import 'package:take_my_tym_admin/route/app_router.dart';
 
 class MyAppView extends StatelessWidget {
   const MyAppView({super.key});

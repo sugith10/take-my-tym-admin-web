@@ -32,7 +32,8 @@ class PaginationWidget extends StatelessWidget {
         ),
         TextButton(
           style: const ButtonStyle(
-              shape: MaterialStatePropertyAll(StadiumBorder())),
+            shape: WidgetStatePropertyAll(StadiumBorder()),
+          ),
           onPressed: () {},
           child: const Text(
             "See All",

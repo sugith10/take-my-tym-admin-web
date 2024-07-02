@@ -74,16 +74,19 @@ class MyAppTheme {
     ),
     textButtonTheme: const TextButtonThemeData(
       style: ButtonStyle(
-        foregroundColor: MaterialStatePropertyAll(Colors.black),
-        iconColor: MaterialStatePropertyAll(Colors.black),
-        mouseCursor: MaterialStatePropertyAll(
-          MaterialStateMouseCursor.clickable,
+        foregroundColor: WidgetStatePropertyAll(Colors.black),
+        iconColor: WidgetStatePropertyAll(Colors.black),
+        mouseCursor: WidgetStatePropertyAll(
+          WidgetStateMouseCursor.clickable,
         ),
-        textStyle: MaterialStatePropertyAll(
+        textStyle: WidgetStatePropertyAll(
           TextStyle(color: Colors.black),
         ),
-        shape: MaterialStatePropertyAll(CircleBorder()),
+        shape: WidgetStatePropertyAll(CircleBorder()),
       ),
+    ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Colors.black,
     ),
   );
 }
